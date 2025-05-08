@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect API ASP.NET</title>
+</head>
+<body>
+    <h1>Data dari API</h1>
+    <pre id="data">Loading...</pre>
+
+    <script>
+        fetch('https://localhost:7063/api/MenuMyResto')
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('data').innerText = JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+            document.getElementById('data').innerText = 'Gagal fetch API: ' + err;
+        });
+    </script>
+</body>
+</html>
